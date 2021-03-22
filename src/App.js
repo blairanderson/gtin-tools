@@ -12,24 +12,15 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>{document.title}</h1>
-      {Object.entries(FUNCMAP).map(function ([key, title], index) {
-        return testFunction === key ? (
-          <button disabled style={{ borderStyle: "inset" }} key={key}>
-            {title}
-          </button>
-        ) : (
-          <button
-            style={{ cursor: "pointer" }}
-            onClick={(e) => {
-              changeFunction(key);
-            }}
-            key={key}
-          >
-            {title}
-          </button>
-        );
-      })}
+      <h1>Check digit calculator</h1>
+      <p>
+        The last digit of a barcode number is a computer check digit which makes
+        sure the barcode is correctly composed. Use our check digit calculator
+        below to calculate a check digit.
+      </p>
+
+      <h3>Calculate a check digit</h3>
+      <small>GS1 key without check digit</small>
       <br />
       <textarea
         type="text"
