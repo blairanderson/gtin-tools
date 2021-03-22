@@ -2,23 +2,18 @@ import React from "react";
 import "./styles.css";
 import gs1 from "gs1";
 import bwipjs from "bwip-js";
-const FUNCMAP = {
-  checkdigit: "Check Digit"
-};
 
 export default function App() {
   const [inputValue, setData] = React.useState("3060198697482");
-  const [testFunction, changeFunction] = React.useState("checkdigit");
 
   return (
-    <div className="App">
+    <div className="">
       <h1>Check digit calculator</h1>
       <p>
         The last digit of a barcode number is a computer check digit which makes
         sure the barcode is correctly composed. Use our check digit calculator
         below to calculate a check digit.
       </p>
-
       <h3>Calculate a check digit</h3>
       <small>GS1 key without check digit</small>
       <br />
@@ -32,6 +27,7 @@ export default function App() {
       />
       <br />
       <CheckDigit inputValue={inputValue} />
+      <Footer />
     </div>
   );
 }
@@ -110,5 +106,34 @@ function CheckDigit(props) {
         </div>
       </div>
     </div>
+  );
+}
+
+function Footer() {
+  const links = [
+    "https://github.com/blairanderson/gtin-tools",
+    "https://codesandbox.io/s/strange-ramanujan-j0seq",
+    "https://github.com/metafloor/bwip-js"
+  ];
+  return (
+    <footer className="footer mt-auto py-3 bg-light">
+      <div className="container">
+        <span className="text-muted">
+          Open Source Tool created by{" "}
+          <a href="https://www.thevdb.com">TheVDB.com</a>
+        </span>
+        <ul class="list-unstyled">
+          {links.map(function (link) {
+            return (
+              <li key={link}>
+                <small>
+                  <a href={link}>{link}</a>
+                </small>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </footer>
   );
 }
