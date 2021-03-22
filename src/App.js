@@ -122,7 +122,7 @@ function Footer() {
           Open Source Tool created by{" "}
           <a href="https://www.thevdb.com">TheVDB.com</a>
         </span>
-        <ul class="list-unstyled">
+        <ul className="list-unstyled">
           {links.map(function (link) {
             return (
               <li key={link}>
